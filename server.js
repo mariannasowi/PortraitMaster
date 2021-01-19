@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const formidable = require('express-formidable');
 const uniqid = require('uniqid');
 const connectToDB = require('./db');
+const requestIp = require('request-ip');
 
 // start express server
 const app = express();
@@ -34,6 +35,14 @@ app.use(express.static(path.join(__dirname, '/client/build')));
 
 // add photo routes
 app.use('/api', require('./routes/photos.routes'));
+
+app.use(requestIp.mw());
+
+app.use((req, res) => {
+  const ip = req.clientIp;
+  res.end(ip);
+  req.ip = ip;
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));

@@ -1,5 +1,5 @@
 {
-  "name": "Express",
+  "name": "PortraitMaster",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -14,9 +14,11 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
+    "mongo-sanitize": "^1.1.0",
     "mongoose": "^5.7.7",
     "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
+    "request-ip": "^2.1.3",
     "uniqid": "^5.0.3"
   }
 }
